@@ -52,3 +52,24 @@ public interface PlayerRepository extends CassandraRepository<T, ID> {
 ### Create Controller layer that has Service layer injected to handle APIs
 
 ### Create different API handlers on top of these
+The above is assumed to run from Intellij. Other option is to use Docker
+
+### Dockerize the Spring boot app (Need to resolve issue running two containers as Cassandra is being used in container)
+1. cd into the project directory, build the jar file by running `./mvnw install` with Maven (make sure java version is the same as the project code)
+2. Create a `Dockerfile` with following cmd
+```
+FROM openjdk:17-oracle
+VOLUME /tmp
+COPY target/*.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+```
+3. Build an image using following Docker cmd
+```
+docker build -t CONTAINER_IMAGE_NAME .
+```
+4. Check the built image under Local Images in Docker Desktop
+5. Run the image in a container using following cmd
+```
+docker run -p 8080:8080 CONTAINER_IMAGE_NAME
+```
+Reference: [Spring Boot Docker](https://spring.io/guides/topicals/spring-boot-docker)
