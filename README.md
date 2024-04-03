@@ -39,3 +39,10 @@ describe keyspaces;
 use KEYSPACE_CREATED_EARLIER;
 describe tables;
 ```
+
+### Create Repository that extends from CassandraRepository<T, ID>
+This allows for basic CRUD operations
+```
+public interface PlayerRepository extends CassandraRepository<T, ID> {
+}
+```
