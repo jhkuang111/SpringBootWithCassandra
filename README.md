@@ -27,3 +27,15 @@ spring.cassandra.connection.init-query-timeout=10s
 spring.cassandra.local-datacenter=datacenter1
 spring.cassandra.keyspace-name=DATABASE_NAME
 ```
+
+### Create a table in Cassandra
+1. Use `@Table` to map a POJO to table in Cassandra
+2. Use `@PrimaryKey` to denote primary key
+3. Use following cmd to check table is created in Cassandra database running in container
+```
+docker exec -it CONTAINER_NAME bash -c "cqlsh -u cassandra -p cassandra"
+
+describe keyspaces;
+use KEYSPACE_CREATED_EARLIER;
+describe tables;
+```
