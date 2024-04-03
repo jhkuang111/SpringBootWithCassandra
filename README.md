@@ -46,3 +46,5 @@ This allows for basic CRUD operations
 public interface PlayerRepository extends CassandraRepository<T, ID> {
 }
 ```
+
+### Create Service layer that has Repository injected to access data
