@@ -50,3 +50,5 @@ public interface PlayerRepository extends CassandraRepository<T, ID> {
 ### Create Service layer that has Repository layer injected to access data
 
 ### Create Controller layer that has Service layer injected to handle APIs
+
+### Create different API handlers on top of these

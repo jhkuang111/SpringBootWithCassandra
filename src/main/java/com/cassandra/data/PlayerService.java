@@ -11,4 +11,8 @@ public class PlayerService {
     @Autowired
     PlayerRepository playerRepo;
 
+    public List<Player> getAllPlayers() {
+        return playerRepo.findAll();
+    }
+
 }
